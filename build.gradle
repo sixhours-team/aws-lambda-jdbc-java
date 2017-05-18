@@ -13,11 +13,26 @@ apply plugin: 'propdeps-maven'
 apply plugin: 'propdeps-idea'
 apply plugin: 'propdeps-eclipse'
 
+group = 'io.sixhours'
+version = '1.0.0-SNAPSHOT'
+
 jar {
     manifest {
+        attributes('Implementation-Title': 'AWS Lambda JDBC function')
+        attributes('Implementation-Version': version)
         attributes('Build-Time-ISO-8601': new Date().format("yyyy-MM-dd'T'HH:mm:ssZ"))
     }
 }
+
+task buildZip(type: Zip) {
+    from compileJava
+    from processResources
+    into('lib') {
+        from configurations.runtime
+    }
+}
+
+build.dependsOn buildZip
 
 repositories {
     jcenter()
