@@ -10,7 +10,7 @@ import lombok.Data;
 @Data
 public class Configuration {
 
-    DataSource datasource;
+    private DataSource datasource;
 
     @Data
     public static final class DataSource {
