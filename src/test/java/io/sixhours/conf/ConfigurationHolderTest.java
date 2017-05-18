@@ -11,11 +11,11 @@ import static org.junit.Assert.assertThat;
  *
  * @author Igor Bolic
  */
-public class ConfigurationLoaderTest {
+public class ConfigurationHolderTest {
 
     @Test
     public void thatConfigurationValuesAreLoaded() throws Exception {
-        Configuration configuration = ConfigurationLoader.instance.configuration();
+        Configuration configuration = ConfigurationHolder.instance.configuration();
 
         assertThat(configuration, notNullValue());
         assertThat(configuration.getDatasource(), notNullValue());

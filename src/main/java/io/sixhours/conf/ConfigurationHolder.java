@@ -6,22 +6,22 @@ import org.yaml.snakeyaml.constructor.Constructor;
 import java.io.InputStream;
 
 /**
- * Loads configuration from the {@code application.yml} file on the classpath.
+ * Holds a configuration loaded from the {@code application.yml} file on the classpath.
  *
  * @author Igor Bolic
  */
-public enum ConfigurationLoader {
+public enum ConfigurationHolder {
     instance;
 
     private final Yaml yaml = new Yaml(new Constructor(Configuration.class));
     private Configuration configuration;
 
-    ConfigurationLoader() {
+    ConfigurationHolder() {
         load();
     }
 
     private void load() {
-        InputStream inputStream = ConfigurationLoader.class.getResourceAsStream("/application.yml");
+        InputStream inputStream = ConfigurationHolder.class.getResourceAsStream("/application.yml");
 
         this.configuration = Configuration.class.cast(yaml.load(inputStream));
     }

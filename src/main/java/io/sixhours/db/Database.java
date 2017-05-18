@@ -2,7 +2,7 @@ package io.sixhours.db;
 
 import com.mysql.cj.jdbc.MysqlDataSource;
 import io.sixhours.conf.Configuration;
-import io.sixhours.conf.ConfigurationLoader;
+import io.sixhours.conf.ConfigurationHolder;
 
 import javax.sql.DataSource;
 import java.sql.Connection;
@@ -18,7 +18,7 @@ public class Database {
     private static final DataSource dataSource;
 
     static {
-        Configuration configuration = ConfigurationLoader.instance.configuration();
+        Configuration configuration = ConfigurationHolder.instance.configuration();
         Configuration.DataSource props = configuration.getDatasource();
 
         MysqlDataSource ds = new MysqlDataSource();
