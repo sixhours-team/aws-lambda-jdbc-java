@@ -1,4 +1,17 @@
+buildscript {
+    repositories {
+        maven { url 'http://repo.spring.io/plugins-release' }
+    }
+    dependencies {
+        classpath 'io.spring.gradle:propdeps-plugin:0.0.9.RELEASE'
+    }
+}
+
 apply plugin: 'java'
+apply plugin: 'propdeps'
+apply plugin: 'propdeps-maven'
+apply plugin: 'propdeps-idea'
+apply plugin: 'propdeps-eclipse'
 
 jar {
     manifest {
@@ -13,6 +26,9 @@ repositories {
 dependencies {
     compile 'com.amazonaws:aws-lambda-java-core:1.1.0'
     compile 'mysql:mysql-connector-java:6.0.6'
+    compile 'org.yaml:snakeyaml:1.18'
+
+    provided 'org.projectlombok:lombok:1.16.16'
 
     testCompile 'junit:junit:4.12'
 }

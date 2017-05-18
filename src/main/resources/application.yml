@@ -1,0 +1,4 @@
+datasource:
+  url: jdbc:mysql://[host]:[port]/[database]
+  username: username
+  password: password

@@ -1,0 +1,4 @@
+datasource:
+  url: jdbc:mysql://test-host:3306/test-db
+  username: test-username
+  password: test-password
