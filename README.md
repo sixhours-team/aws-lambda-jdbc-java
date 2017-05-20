@@ -5,7 +5,7 @@ This is a sample project showing the AWS Lambda integration with MySQL relationa
 
 ## Build
 
-To build and package the Lambda function in a *.zip* file run following gradle command:
+To build and package the Lambda function run following gradle command:
 
 `./gradlew clean build`
 
@@ -25,4 +25,4 @@ datasource:
 
 ## Usage
 
-Build the project and create the Lambda function by uploading the deployment package.
+Build the project and create the Lambda function by uploading the *.zip* deployment package.
