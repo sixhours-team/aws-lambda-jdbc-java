@@ -14,23 +14,8 @@ import java.util.List;
  *
  * @author Igor Bolic
  */
-public class DefaultEmployeeDao implements EmployeeDao {
-
-    private static volatile EmployeeDao instance;
-
-    private DefaultEmployeeDao() {
-    }
-
-    public static EmployeeDao instance() {
-        if (instance == null) {
-            synchronized (DefaultEmployeeDao.class) {
-                if (instance == null) {
-                    instance = new DefaultEmployeeDao();
-                }
-            }
-        }
-        return instance;
-    }
+public enum DefaultEmployeeDao implements EmployeeDao {
+    instance;
 
     @Override
     public List<Employee> find() {

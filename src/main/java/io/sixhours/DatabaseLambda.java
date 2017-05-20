@@ -15,7 +15,7 @@ import java.util.List;
  */
 public class DatabaseLambda implements RequestHandler<Void, List<Employee>> {
 
-    private final EmployeeDao employeeDao = DefaultEmployeeDao.instance();
+    private final EmployeeDao employeeDao = DefaultEmployeeDao.instance;
 
     @Override
     public List<Employee> handleRequest(Void input, Context context) {

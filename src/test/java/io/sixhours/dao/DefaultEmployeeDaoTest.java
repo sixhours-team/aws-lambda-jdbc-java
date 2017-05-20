@@ -19,7 +19,7 @@ import static org.junit.Assert.assertThat;
  */
 public class DefaultEmployeeDaoTest extends AbstractIntegrationTest {
 
-    private final EmployeeDao service = DefaultEmployeeDao.instance();
+    private final EmployeeDao service = DefaultEmployeeDao.instance;
 
     @Override
     protected void setUp() throws Exception {
