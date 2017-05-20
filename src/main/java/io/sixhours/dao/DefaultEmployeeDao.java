@@ -1,4 +1,4 @@
-package io.sixhours.service;
+package io.sixhours.dao;
 
 import io.sixhours.db.Database;
 import io.sixhours.pojo.Employee;
@@ -14,18 +14,18 @@ import java.util.List;
  *
  * @author Igor Bolic
  */
-public class DefaultEmployeeService implements EmployeeService {
+public class DefaultEmployeeDao implements EmployeeDao {
 
-    private static volatile EmployeeService instance;
+    private static volatile EmployeeDao instance;
 
-    private DefaultEmployeeService() {
+    private DefaultEmployeeDao() {
     }
 
-    public static EmployeeService instance() {
+    public static EmployeeDao instance() {
         if (instance == null) {
-            synchronized (DefaultEmployeeService.class) {
+            synchronized (DefaultEmployeeDao.class) {
                 if (instance == null) {
-                    instance = new DefaultEmployeeService();
+                    instance = new DefaultEmployeeDao();
                 }
             }
         }

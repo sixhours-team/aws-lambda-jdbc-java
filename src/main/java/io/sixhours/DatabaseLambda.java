@@ -3,8 +3,8 @@ package io.sixhours;
 import com.amazonaws.services.lambda.runtime.Context;
 import com.amazonaws.services.lambda.runtime.RequestHandler;
 import io.sixhours.pojo.Employee;
-import io.sixhours.service.DefaultEmployeeService;
-import io.sixhours.service.EmployeeService;
+import io.sixhours.dao.DefaultEmployeeDao;
+import io.sixhours.dao.EmployeeDao;
 
 import java.util.List;
 
@@ -15,12 +15,12 @@ import java.util.List;
  */
 public class DatabaseLambda implements RequestHandler<Void, List<Employee>> {
 
-    private final EmployeeService employeeService = DefaultEmployeeService.instance();
+    private final EmployeeDao employeeDao = DefaultEmployeeDao.instance();
 
     @Override
     public List<Employee> handleRequest(Void input, Context context) {
 
-        List<Employee> result = employeeService.find();
+        List<Employee> result = employeeDao.find();
 
         return result;
     }

@@ -1,4 +1,4 @@
-package io.sixhours.service;
+package io.sixhours.dao;
 
 import io.sixhours.pojo.Employee;
 
@@ -9,7 +9,7 @@ import java.util.List;
  *
  * @author Igor Bolic
  */
-public interface EmployeeService {
+public interface EmployeeDao {
 
     List<Employee> find();
 }

@@ -1,4 +1,4 @@
-package io.sixhours.service;
+package io.sixhours.dao;
 
 import io.sixhours.AbstractIntegrationTest;
 import io.sixhours.ReflectionUtil;
@@ -17,9 +17,9 @@ import static org.junit.Assert.assertThat;
 /**
  * @author Igor Bolic
  */
-public class DefaultEmployeeServiceTest extends AbstractIntegrationTest {
+public class DefaultEmployeeDaoTest extends AbstractIntegrationTest {
 
-    private final EmployeeService service = DefaultEmployeeService.instance();
+    private final EmployeeDao service = DefaultEmployeeDao.instance();
 
     @Override
     protected void setUp() throws Exception {
