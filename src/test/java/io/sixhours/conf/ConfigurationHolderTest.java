@@ -19,7 +19,7 @@ public class ConfigurationHolderTest {
 
         assertThat(configuration, notNullValue());
         assertThat(configuration.getDatasource(), notNullValue());
-        assertThat(configuration.getDatasource().getUrl(), is("jdbc:mysql://test-host:3306/test-db"));
+        assertThat(configuration.getDatasource().getUrl(), is("jdbc:h2:mem:test"));
         assertThat(configuration.getDatasource().getUsername(), is("test-username"));
         assertThat(configuration.getDatasource().getPassword(), is("test-password"));
     }

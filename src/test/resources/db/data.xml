@@ -1,0 +1,7 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<dataset>
+    <employee id="1" first_name="John" last_name="Smith" address="969 W Main Rd" city="New York"/>
+    <employee id="2" first_name="William" last_name="Adams" address="1810 Penn Street" city="Chicago"/>
+    <employee id="3" first_name="Ami" last_name="Johnson" address="123 Sullivan St" city="Boston"/>
+    <employee id="4" first_name="Jerry" last_name="Johnson" address="501 N West St" city="Denver"/>
+</dataset>

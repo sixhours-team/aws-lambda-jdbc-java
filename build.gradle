@@ -46,4 +46,6 @@ dependencies {
     provided 'org.projectlombok:lombok:1.16.16'
 
     testCompile 'junit:junit:4.12'
+    testCompile 'org.dbunit:dbunit:2.5.3'
+    testCompile 'com.h2database:h2:1.4.194'
 }

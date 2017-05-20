@@ -2,23 +2,26 @@ package io.sixhours;
 
 import com.amazonaws.services.lambda.runtime.Context;
 import com.amazonaws.services.lambda.runtime.RequestHandler;
-import io.sixhours.service.DefaultLambdaService;
-import io.sixhours.service.LambdaService;
+import io.sixhours.pojo.Employee;
+import io.sixhours.service.DefaultEmployeeService;
+import io.sixhours.service.EmployeeService;
+
+import java.util.List;
 
 /**
  * Database AWS Lambda function.
  *
  * @author Igor Bolic
  */
-public class DatabaseLambda implements RequestHandler<Void, Boolean> {
+public class DatabaseLambda implements RequestHandler<Void, List<Employee>> {
 
-    private final LambdaService lambdaService = DefaultLambdaService.instance();
+    private final EmployeeService employeeService = DefaultEmployeeService.instance();
 
     @Override
-    public Boolean handleRequest(Void input, Context context) {
+    public List<Employee> handleRequest(Void input, Context context) {
 
-        lambdaService.find();
+        List<Employee> result = employeeService.find();
 
-        return Boolean.TRUE;
+        return result;
     }
 }

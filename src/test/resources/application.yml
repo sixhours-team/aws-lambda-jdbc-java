@@ -1,4 +1,4 @@
 datasource:
-  url: jdbc:mysql://test-host:3306/test-db
+  url: jdbc:h2:mem:test
   username: test-username
   password: test-password
