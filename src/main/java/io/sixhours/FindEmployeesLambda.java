@@ -9,11 +9,11 @@ import io.sixhours.dao.EmployeeDao;
 import java.util.List;
 
 /**
- * Database AWS Lambda function.
+ * AWS Lambda function retrieving the list of {@link Employee}s.
  *
  * @author Igor Bolic
  */
-public class DatabaseLambda implements RequestHandler<Void, List<Employee>> {
+public class FindEmployeesLambda implements RequestHandler<Void, List<Employee>> {
 
     private final EmployeeDao employeeDao = DefaultEmployeeDao.instance;
 

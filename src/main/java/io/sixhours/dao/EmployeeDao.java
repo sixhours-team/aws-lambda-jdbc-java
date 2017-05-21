@@ -5,7 +5,7 @@ import io.sixhours.pojo.Employee;
 import java.util.List;
 
 /**
- * Lambda service.
+ * Employee DAO interface.
  *
  * @author Igor Bolic
  */

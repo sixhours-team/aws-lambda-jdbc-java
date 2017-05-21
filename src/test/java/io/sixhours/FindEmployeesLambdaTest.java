@@ -14,14 +14,14 @@ import static org.junit.Assert.assertThat;
  *
  * @author Igor Bolic
  */
-public class DatabaseLambdaTest {
+public class FindEmployeesLambdaTest {
 
     private final Void input = null;
     private final Context context = new TestContext();
 
     @Test
     public void thatHandleRequestReturnsResult() throws Exception {
-        DatabaseLambda handler = new DatabaseLambda();
+        FindEmployeesLambda handler = new FindEmployeesLambda();
 
         List<Employee> list = handler.handleRequest(input, context);
 

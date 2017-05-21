@@ -10,7 +10,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Default lambda service.
+ * Default employee DAO implementation.
  *
  * @author Igor Bolic
  */
@@ -20,8 +20,8 @@ public enum DefaultEmployeeDao implements EmployeeDao {
     @Override
     public List<Employee> find() {
         List<Employee> employees = new ArrayList<>();
+
         try (PreparedStatement ps = Database.connection().prepareStatement("SELECT * FROM employee")) {
-            // to be implemented
             ResultSet rs = ps.executeQuery();
 
             while (rs.next()) {
