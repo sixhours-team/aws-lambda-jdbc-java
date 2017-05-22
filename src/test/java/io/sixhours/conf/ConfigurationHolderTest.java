@@ -7,7 +7,7 @@ import static org.hamcrest.CoreMatchers.notNullValue;
 import static org.junit.Assert.assertThat;
 
 /**
- * Configuration loader tests.
+ * Configuration holder tests.
  *
  * @author Igor Bolic
  */

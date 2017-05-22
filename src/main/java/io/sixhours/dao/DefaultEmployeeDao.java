@@ -25,7 +25,8 @@ public enum DefaultEmployeeDao implements EmployeeDao {
             ResultSet rs = ps.executeQuery();
 
             while (rs.next()) {
-                Employee employee = Employee.of(rs.getInt("id"),
+                Employee employee = Employee.of(
+                        rs.getInt("id"),
                         rs.getString("first_name"),
                         rs.getString("last_name"),
                         rs.getString("address"),

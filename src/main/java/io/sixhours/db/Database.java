@@ -13,7 +13,11 @@ import java.sql.SQLException;
  *
  * @author Igor Bolic
  */
-public class Database {
+public final class Database {
+
+    private Database() {
+        throw new AssertionError();
+    }
 
     private static final DataSource dataSource;
 

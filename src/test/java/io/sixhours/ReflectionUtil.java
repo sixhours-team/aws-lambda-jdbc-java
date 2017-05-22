@@ -4,7 +4,7 @@ import java.lang.reflect.Field;
 import java.lang.reflect.Modifier;
 
 /**
- * Test utility class.
+ * Reflection utility class.
  *
  * @author Igor Bolic
  */
@@ -15,23 +15,9 @@ public final class ReflectionUtil {
     }
 
     /**
-     * Set final field of the object under test.
-     *
-     * @param object    The object under test.
-     * @param fieldName Field name.
-     * @param newValue  New field value.
-     * @throws Exception When final field could not be set.
-     */
-    public static void setFinalField(Object object, String fieldName, Object newValue) throws Exception {
-        Field field = object.getClass().getDeclaredField(fieldName);
-        field.setAccessible(true);
-        field.set(object, newValue);
-    }
-
-    /**
      * Set final static field.
      *
-     * @param newValue  New field value.
+     * @param newValue New field value.
      * @throws Exception When final field could not be set.
      */
     public static void setStaticFinalField(Field field, Object newValue) throws Exception {
@@ -44,16 +30,4 @@ public final class ReflectionUtil {
         field.set(null, newValue);
     }
 
-    /**
-     * Get final static field value.
-     *
-     * @param field Static final field
-     * @return Field value
-     * @throws Exception When final field value could not be accessed.
-     */
-    public static Object getStaticFinalField(Field field) throws Exception {
-        field.setAccessible(true);
-
-        return field.get(null);
-    }
 }
