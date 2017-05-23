@@ -2,9 +2,9 @@ package io.sixhours;
 
 import com.amazonaws.services.lambda.runtime.Context;
 import com.amazonaws.services.lambda.runtime.RequestHandler;
-import io.sixhours.pojo.Employee;
 import io.sixhours.dao.DefaultEmployeeDao;
 import io.sixhours.dao.EmployeeDao;
+import io.sixhours.pojo.Employee;
 
 import java.util.List;
 
