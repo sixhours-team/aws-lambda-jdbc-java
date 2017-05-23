@@ -20,6 +20,6 @@ public class FindEmployeesLambda implements RequestHandler<Void, List<Employee>>
     @Override
     public List<Employee> handleRequest(Void input, Context context) {
 
-        return employeeDao.find();
+        return employeeDao.findAll();
     }
 }

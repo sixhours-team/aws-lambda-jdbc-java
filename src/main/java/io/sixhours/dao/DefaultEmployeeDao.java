@@ -18,7 +18,7 @@ public enum DefaultEmployeeDao implements EmployeeDao {
     instance;
 
     @Override
-    public List<Employee> find() {
+    public List<Employee> findAll() {
         List<Employee> employees = new ArrayList<>();
 
         try (PreparedStatement ps = Database.connection().prepareStatement("SELECT * FROM employee")) {

@@ -30,7 +30,7 @@ public class DefaultEmployeeDaoTest extends AbstractIntegrationTest {
     }
 
     public void testThatFindReturnsPersonList() throws Exception {
-        List<Employee> employees = service.find();
+        List<Employee> employees = service.findAll();
 
         assertThat(employees, notNullValue());
         assertThat(employees.size(), is(4));
