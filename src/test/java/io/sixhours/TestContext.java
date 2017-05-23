@@ -18,7 +18,7 @@ public class TestContext implements Context {
     private CognitoIdentity identity;
     private String logGroupName = "EXAMPLE";
     private String logStreamName = "EXAMPLE";
-    private LambdaLogger logger = new TestLogger();
+    private LambdaLogger logger = new TestLambdaLogger();
     private int memoryLimitInMB = 128;
     private int remainingTimeInMillis = 15000;
     private String functionVersion = "EXAMPLE";
@@ -124,13 +124,13 @@ public class TestContext implements Context {
     }
 
     /**
-     * A simple {@code LambdaLogger} that prints everything to stderr.
+     * {@code LambdaLogger} logging a string to stdout.
      */
-    private static class TestLogger implements LambdaLogger {
+    private static class TestLambdaLogger implements LambdaLogger {
 
         @Override
         public void log(String message) {
-            System.err.println(message);
+            System.out.println(message);
         }
     }
 }
