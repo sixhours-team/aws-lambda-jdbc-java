@@ -24,6 +24,7 @@ public enum DefaultEmployeeDao implements EmployeeDao {
 
         try (Connection conn = Database.connection();
              PreparedStatement ps = conn.prepareStatement("SELECT * FROM employee")) {
+
             ResultSet rs = ps.executeQuery();
 
             while (rs.next()) {

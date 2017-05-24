@@ -1,9 +1,7 @@
 package io.sixhours;
 
-import io.sixhours.conf.Configuration;
-import io.sixhours.conf.ConfigurationHolder;
+import io.sixhours.db.Database;
 import org.dbunit.DataSourceBasedDBTestCase;
-import org.h2.jdbcx.JdbcDataSource;
 import org.h2.tools.RunScript;
 
 import javax.sql.DataSource;
@@ -17,8 +15,6 @@ import java.io.InputStreamReader;
  */
 public abstract class AbstractIntegrationTest extends DataSourceBasedDBTestCase {
 
-    private final Configuration configuration = ConfigurationHolder.instance.configuration();
-
     @Override
     protected void setUp() throws Exception {
         DataSource dataSource = getDataSource();
@@ -30,10 +26,6 @@ public abstract class AbstractIntegrationTest extends DataSourceBasedDBTestCase 
 
     @Override
     protected DataSource getDataSource() {
-        Configuration.DataSource props = configuration.getDatasource();
-
-        JdbcDataSource dataSource = new JdbcDataSource();
-        dataSource.setURL(props.getUrl());
-        return dataSource;
+        return Database.dataSource();
     }
 }

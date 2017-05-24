@@ -14,6 +14,7 @@ public class Configuration {
 
     @Data
     public static final class DataSource {
+        private String driverClassName;
         private String url;
         private String username;
         private String password;

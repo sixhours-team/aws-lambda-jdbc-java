@@ -41,6 +41,7 @@ repositories {
 dependencies {
     compile 'com.amazonaws:aws-lambda-java-core:1.1.0'
     compile 'mysql:mysql-connector-java:6.0.6'
+    compile 'com.zaxxer:HikariCP:2.6.2'
     compile 'org.yaml:snakeyaml:1.18'
 
     provided 'org.projectlombok:lombok:1.16.16'

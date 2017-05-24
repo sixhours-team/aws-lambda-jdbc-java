@@ -1,8 +1,6 @@
 package io.sixhours.dao;
 
 import io.sixhours.AbstractIntegrationTest;
-import io.sixhours.ReflectionUtil;
-import io.sixhours.db.Database;
 import io.sixhours.pojo.Employee;
 import org.dbunit.dataset.IDataSet;
 import org.dbunit.dataset.xml.FlatXmlDataSetBuilder;
@@ -23,12 +21,6 @@ public class DefaultEmployeeDaoTest extends AbstractIntegrationTest {
 
     private final EmployeeDao service = DefaultEmployeeDao.instance;
 
-    @Override
-    protected void setUp() throws Exception {
-        super.setUp();
-        ReflectionUtil.setStaticFinalField(Database.class.getDeclaredField("dataSource"), getDataSource());
-    }
-
     public void testThatFindReturnsPersonList() throws Exception {
         List<Employee> employees = service.findAll();
 
@@ -40,7 +32,6 @@ public class DefaultEmployeeDaoTest extends AbstractIntegrationTest {
         assertThat(employees.get(2).getLastName(), is("Johnson"));
         assertThat(employees.get(2).getAddress(), is("123 Sullivan St"));
         assertThat(employees.get(2).getCity(), is("Boston"));
-
     }
 
     @Override

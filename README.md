@@ -4,7 +4,10 @@ This is a sample project showing the AWS Lambda integration with MySQL relationa
 
 When triggered the lambda function will access the `employee` table ([schema](src/test/resources/db/schema.sql))in the MySQL RDS instance 
 that you created in the VPC, and return the list of all employees found in the table. The connection 
-to the database is obtained using the `DataSource` interface. 
+to the database is obtained using the `DataSource` interface. Any declarations in Lambda function 
+code (outside the handler method) remains initialized e.g. database connections. Instead of reestablishing 
+the new connection, the original connection is used in subsequent invocations. For this reason the HikariCP
+JDBC connection pool is used.
 
 ## Build
 

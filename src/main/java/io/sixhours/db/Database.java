@@ -1,6 +1,7 @@
 package io.sixhours.db;
 
-import com.mysql.cj.jdbc.MysqlDataSource;
+import com.zaxxer.hikari.HikariConfig;
+import com.zaxxer.hikari.HikariDataSource;
 import io.sixhours.conf.Configuration;
 import io.sixhours.conf.ConfigurationHolder;
 
@@ -19,18 +20,23 @@ public final class Database {
         throw new AssertionError();
     }
 
-    private static final DataSource dataSource;
+    private static final HikariDataSource dataSource;
 
     static {
         Configuration configuration = ConfigurationHolder.instance.configuration();
         Configuration.DataSource props = configuration.getDatasource();
 
-        MysqlDataSource ds = new MysqlDataSource();
-        ds.setURL(props.getUrl());
-        ds.setUser(props.getUsername());
-        ds.setPassword(props.getPassword());
+        HikariConfig config = new HikariConfig();
+        config.setDriverClassName(props.getDriverClassName());
+        config.setJdbcUrl(props.getUrl());
+        config.setUsername(props.getUsername());
+        config.setPassword(props.getPassword());
 
-        dataSource = ds;
+        dataSource = new HikariDataSource(config);
+    }
+
+    public static DataSource dataSource() {
+        return dataSource;
     }
 
     public static Connection connection() throws SQLException {
