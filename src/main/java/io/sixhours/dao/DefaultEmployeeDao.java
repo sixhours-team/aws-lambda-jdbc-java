@@ -3,6 +3,7 @@ package io.sixhours.dao;
 import io.sixhours.db.Database;
 import io.sixhours.pojo.Employee;
 
+import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -21,7 +22,8 @@ public enum DefaultEmployeeDao implements EmployeeDao {
     public List<Employee> findAll() {
         List<Employee> employees = new ArrayList<>();
 
-        try (PreparedStatement ps = Database.connection().prepareStatement("SELECT * FROM employee")) {
+        try (Connection conn = Database.connection();
+             PreparedStatement ps = conn.prepareStatement("SELECT * FROM employee")) {
             ResultSet rs = ps.executeQuery();
 
             while (rs.next()) {
