@@ -3,11 +3,12 @@
 This is a sample project showing the AWS Lambda integration with MySQL relational database.
 
 When triggered the lambda function will access the `employee` table ([schema](src/test/resources/db/schema.sql))in the MySQL RDS instance 
-that you created in the VPC, and return the list of all employees found in the table. The connection 
-to the database is obtained using the `DataSource` interface. Any declarations in Lambda function 
-code (outside the handler method) remains initialized e.g. database connections. Instead of reestablishing 
-the new connection, the original connection is used in subsequent invocations. For this reason the HikariCP
-JDBC connection pool is used.
+that you created in the VPC, and return the list of all employees found in the table. The connection to the database is 
+obtained using the `DataSource` interface. 
+
+AWS Lambda might reuse container when lambda function is invoked again. Any declarations in lambda function code (outside 
+the handler method) remains initialized e.g. database connections. Instead of reestablishing the new connection, the 
+original connection is used in subsequent invocations. For this reason the [HikariCP](https://github.com/brettwooldridge/HikariCP) JDBC connection pool is used.
 
 ## Build
 
@@ -19,8 +20,8 @@ The resulting *.zip* deployment package can be found in `build/distributions` di
 
 ## Properties
 
-Lambda configuration properties can be set in your `application.yml` file. Below is the
-full list of supported properties for the lambda function:
+Lambda configuration properties can be set in your `application.yml` file. Below is the full list of supported properties 
+for the lambda function:
 
 ```.properties
 datasource:
