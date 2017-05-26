@@ -2,10 +2,7 @@ package io.sixhours.dao;
 
 import io.sixhours.AbstractIntegrationTest;
 import io.sixhours.pojo.Employee;
-import org.dbunit.dataset.IDataSet;
-import org.dbunit.dataset.xml.FlatXmlDataSetBuilder;
 
-import java.io.InputStream;
 import java.util.List;
 
 import static org.hamcrest.CoreMatchers.is;
@@ -35,8 +32,7 @@ public class DefaultEmployeeDaoTest extends AbstractIntegrationTest {
     }
 
     @Override
-    protected IDataSet getDataSet() throws Exception {
-        InputStream inputStream = AbstractIntegrationTest.class.getResourceAsStream("/db/data.xml");
-        return new FlatXmlDataSetBuilder().build(inputStream);
+    protected String dataSet() {
+        return "/db/data.xml";
     }
 }
