@@ -35,10 +35,6 @@ public final class Database {
         dataSource = new HikariDataSource(config);
     }
 
-    public static DataSource dataSource() {
-        return dataSource;
-    }
-
     public static Connection connection() throws SQLException {
         return dataSource.getConnection();
     }

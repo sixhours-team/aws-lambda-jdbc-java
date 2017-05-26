@@ -1,10 +1,10 @@
 package io.sixhours.db;
 
+import com.zaxxer.hikari.HikariDataSource;
 import org.junit.Rule;
 import org.junit.Test;
 import org.junit.rules.ExpectedException;
 
-import javax.sql.DataSource;
 import java.lang.reflect.Constructor;
 import java.lang.reflect.Field;
 import java.lang.reflect.InvocationTargetException;
@@ -40,7 +40,11 @@ public class DatabaseTest {
         Object value = field.get(null);
 
         assertThat(value, notNullValue());
-        assertThat(value, instanceOf(DataSource.class));
+        assertThat(value, instanceOf(HikariDataSource.class));
+        assertThat(HikariDataSource.class.cast(value).getDriverClassName(), is("org.h2.Driver"));
+        assertThat(HikariDataSource.class.cast(value).getJdbcUrl(), is("jdbc:h2:mem:test"));
+        assertThat(HikariDataSource.class.cast(value).getUsername(), is("test-username"));
+        assertThat(HikariDataSource.class.cast(value).getPassword(), is("test-password"));
     }
 
 }
