@@ -14,7 +14,7 @@ original connection is used in subsequent invocations. For this reason the [Hika
 
 To build and package the lambda function run following gradle command:
 
-`./gradlew clean build`
+    ./gradlew clean build
 
 The resulting *.zip* deployment package can be found in `build/distributions` directory of the project.
 
@@ -23,7 +23,7 @@ The resulting *.zip* deployment package can be found in `build/distributions` di
 Lambda configuration properties can be set in your `application.yml` file. Below is the full list of supported properties 
 for the lambda function:
 
-```.properties
+```yaml
 datasource:
   url: # DB url
   username: # DB username
