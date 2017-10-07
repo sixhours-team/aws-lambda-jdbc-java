@@ -44,8 +44,6 @@ dependencies {
     compile 'com.zaxxer:HikariCP:2.7.1'
     compile 'org.yaml:snakeyaml:1.18'
 
-    provided 'org.projectlombok:lombok:1.16.18'
-
     testCompile 'junit:junit:4.12'
     testCompile 'org.dbunit:dbunit:2.5.4'
     testCompile 'com.h2database:h2:1.4.196'
