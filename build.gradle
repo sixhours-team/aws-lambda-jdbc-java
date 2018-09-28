@@ -39,12 +39,12 @@ repositories {
 }
 
 dependencies {
-    compile 'com.amazonaws:aws-lambda-java-core:1.1.0'
-    compile 'mysql:mysql-connector-java:6.0.6'
-    compile 'com.zaxxer:HikariCP:2.7.1'
-    compile 'org.yaml:snakeyaml:1.18'
+    compile 'com.amazonaws:aws-lambda-java-core:1.2.0'
+    compile 'mysql:mysql-connector-java:8.0.12'
+    compile 'com.zaxxer:HikariCP:3.2.0'
+    compile 'org.yaml:snakeyaml:1.23'
 
     testCompile 'junit:junit:4.12'
     testCompile 'org.dbunit:dbunit:2.5.4'
-    testCompile 'com.h2database:h2:1.4.196'
+    testCompile 'com.h2database:h2:1.4.197'
 }
