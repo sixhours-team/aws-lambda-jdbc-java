@@ -23,7 +23,7 @@ public enum ConfigurationHolder {
     private void load() {
         InputStream inputStream = ConfigurationHolder.class.getResourceAsStream("/application.yml");
 
-        this.configuration = Configuration.class.cast(yaml.load(inputStream));
+        this.configuration = yaml.load(inputStream);
     }
 
     public Configuration configuration() {
