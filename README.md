@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/sixhours-team/aws-lambda-jdbc-java.svg?branch=master)](https://travis-ci.org/sixhours-team/aws-lambda-jdbc-java)
+
 # AWS Lambda JDBC Java
 
 This is a sample project showing the AWS Lambda integration with MySQL relational database.
