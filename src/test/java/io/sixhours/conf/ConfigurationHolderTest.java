@@ -14,8 +14,8 @@ import static org.junit.Assert.assertThat;
 public class ConfigurationHolderTest {
 
     @Test
-    public void thatConfigurationValuesAreLoaded() throws Exception {
-        Configuration configuration = ConfigurationHolder.instance.configuration();
+    public void thatConfigurationValuesAreLoaded() {
+        final Configuration configuration = ConfigurationHolder.INSTANCE.configuration();
 
         assertThat(configuration, notNullValue());
         assertThat(configuration.getDatasource(), notNullValue());

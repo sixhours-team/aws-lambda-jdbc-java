@@ -11,8 +11,6 @@ import java.sql.SQLException;
 
 /**
  * Encapsulates creation of {@link DataSource} connection.
- *
- * @author Igor Bolic
  */
 public final class Database {
 
@@ -23,10 +21,10 @@ public final class Database {
     private static final HikariDataSource dataSource;
 
     static {
-        Configuration configuration = ConfigurationHolder.instance.configuration();
-        Configuration.DataSource props = configuration.getDatasource();
+        final Configuration configuration = ConfigurationHolder.INSTANCE.configuration();
+        final Configuration.DataSource props = configuration.getDatasource();
 
-        HikariConfig config = new HikariConfig();
+        final HikariConfig config = new HikariConfig();
         config.setDriverClassName(props.getDriverClassName());
         config.setJdbcUrl(props.getUrl());
         config.setUsername(props.getUsername());

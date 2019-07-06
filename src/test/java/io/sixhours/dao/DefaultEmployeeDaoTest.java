@@ -16,10 +16,10 @@ import static org.junit.Assert.assertThat;
  */
 public class DefaultEmployeeDaoTest extends AbstractIntegrationTest {
 
-    private final EmployeeDao service = DefaultEmployeeDao.instance;
+    private final EmployeeDao service = DefaultEmployeeDao.INSTANCE;
 
-    public void testThatFindReturnsPersonList() throws Exception {
-        List<Employee> employees = service.findAll();
+    public void testThatFindReturnsPersonList() {
+        final List<Employee> employees = service.findAll();
 
         assertThat(employees, notNullValue());
         assertThat(employees.size(), is(4));

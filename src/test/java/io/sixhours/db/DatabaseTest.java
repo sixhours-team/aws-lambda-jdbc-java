@@ -24,7 +24,7 @@ public class DatabaseTest {
 
     @Test
     public void thatConstructorThrowsException() throws Exception {
-        Constructor constructor = Database.class.getDeclaredConstructors()[0];
+        final Constructor constructor = Database.class.getDeclaredConstructors()[0];
         constructor.setAccessible(true);
 
         thrown.expect(InvocationTargetException.class);
@@ -35,16 +35,18 @@ public class DatabaseTest {
 
     @Test
     public void thatDataSourceIsInitialized() throws Exception {
-        Field field = Database.class.getDeclaredField("dataSource");
+        final Field field = Database.class.getDeclaredField("dataSource");
         field.setAccessible(true);
-        Object value = field.get(null);
+        final Object value = field.get(null);
 
         assertThat(value, notNullValue());
         assertThat(value, instanceOf(HikariDataSource.class));
-        assertThat(HikariDataSource.class.cast(value).getDriverClassName(), is("org.h2.Driver"));
-        assertThat(HikariDataSource.class.cast(value).getJdbcUrl(), is("jdbc:h2:mem:test"));
-        assertThat(HikariDataSource.class.cast(value).getUsername(), is("test-username"));
-        assertThat(HikariDataSource.class.cast(value).getPassword(), is("test-password"));
+
+        final HikariDataSource hikariDataSource = (HikariDataSource) value;
+        assertThat(hikariDataSource.getDriverClassName(), is("org.h2.Driver"));
+        assertThat(hikariDataSource.getJdbcUrl(), is("jdbc:h2:mem:test"));
+        assertThat(hikariDataSource.getUsername(), is("test-username"));
+        assertThat(hikariDataSource.getPassword(), is("test-password"));
     }
 
 }
