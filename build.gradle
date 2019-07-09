@@ -28,7 +28,7 @@ task buildZip(type: Zip) {
     from compileJava
     from processResources
     into('lib') {
-        from configurations.runtime
+        from configurations.runtimeClasspath
     }
 }
 
@@ -39,12 +39,15 @@ repositories {
 }
 
 dependencies {
-    compile 'com.amazonaws:aws-lambda-java-core:1.2.0'
-    compile 'mysql:mysql-connector-java:8.0.15'
-    compile 'com.zaxxer:HikariCP:3.3.1'
-    compile 'org.yaml:snakeyaml:1.24'
+    implementation 'com.amazonaws:aws-lambda-java-core:1.2.0'
+    implementation 'mysql:mysql-connector-java:8.0.15'
+    implementation 'com.zaxxer:HikariCP:3.3.1'
+    implementation 'org.yaml:snakeyaml:1.24'
 
-    testCompile 'junit:junit:4.12'
-    testCompile 'org.dbunit:dbunit:2.6.0'
-    testCompile 'com.h2database:h2:1.4.199'
+    compileOnly 'org.projectlombok:lombok:1.18.8'
+    annotationProcessor 'org.projectlombok:lombok:1.18.8'
+
+    testImplementation 'junit:junit:4.12'
+    testImplementation 'org.dbunit:dbunit:2.6.0'
+    testImplementation 'com.h2database:h2:1.4.199'
 }

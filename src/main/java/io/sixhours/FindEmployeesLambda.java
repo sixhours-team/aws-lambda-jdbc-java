@@ -15,11 +15,10 @@ import java.util.List;
  */
 public class FindEmployeesLambda implements RequestHandler<Void, List<Employee>> {
 
-    private final EmployeeDao employeeDao = DefaultEmployeeDao.instance;
+    private final EmployeeDao employeeDao = DefaultEmployeeDao.INSTANCE;
 
     @Override
     public List<Employee> handleRequest(Void input, Context context) {
-
         return employeeDao.findAll();
     }
 }

@@ -7,23 +7,17 @@ import java.io.InputStream;
 
 /**
  * Holds a configuration loaded from the {@code application.yml} file on the classpath.
- *
- * @author Igor Bolic
  */
 public enum ConfigurationHolder {
-    instance;
+    INSTANCE;
 
     private final Yaml yaml = new Yaml(new Constructor(Configuration.class));
-    private Configuration configuration;
+    private final Configuration configuration = load();
 
-    ConfigurationHolder() {
-        load();
-    }
+    private Configuration load() {
+        final InputStream inputStream = ConfigurationHolder.class.getResourceAsStream("/application.yml");
 
-    private void load() {
-        InputStream inputStream = ConfigurationHolder.class.getResourceAsStream("/application.yml");
-
-        this.configuration = yaml.load(inputStream);
+        return yaml.load(inputStream);
     }
 
     public Configuration configuration() {

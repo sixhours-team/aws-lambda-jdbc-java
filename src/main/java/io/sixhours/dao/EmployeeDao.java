@@ -6,8 +6,6 @@ import java.util.List;
 
 /**
  * Employee DAO interface.
- *
- * @author Igor Bolic
  */
 public interface EmployeeDao {
 

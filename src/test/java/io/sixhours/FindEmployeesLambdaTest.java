@@ -20,10 +20,10 @@ public class FindEmployeesLambdaTest {
     private final Context context = new TestContext();
 
     @Test
-    public void thatHandleRequestReturnsResult() throws Exception {
-        FindEmployeesLambda handler = new FindEmployeesLambda();
+    public void thatHandleRequestReturnsResult() {
+        final FindEmployeesLambda handler = new FindEmployeesLambda();
 
-        List<Employee> list = handler.handleRequest(input, context);
+        final List<Employee> list = handler.handleRequest(input, context);
 
         assertThat(list, notNullValue());
     }

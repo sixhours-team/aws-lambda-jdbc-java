@@ -12,15 +12,13 @@ import java.util.List;
 
 /**
  * Default employee DAO implementation.
- *
- * @author Igor Bolic
  */
 public enum DefaultEmployeeDao implements EmployeeDao {
-    instance;
+    INSTANCE;
 
     @Override
     public List<Employee> findAll() {
-        List<Employee> employees = new ArrayList<>();
+        final List<Employee> employees = new ArrayList<>();
 
         try (Connection conn = Database.connection();
              PreparedStatement ps = conn.prepareStatement("SELECT * FROM employee")) {

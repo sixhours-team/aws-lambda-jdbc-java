@@ -18,14 +18,14 @@ import java.io.InputStreamReader;
  */
 public abstract class AbstractIntegrationTest extends JdbcBasedDBTestCase {
 
-    private final Configuration.DataSource props = ConfigurationHolder.instance
+    private final Configuration.DataSource props = ConfigurationHolder.INSTANCE
             .configuration()
             .getDatasource();
 
     @Override
     protected void setUp() throws Exception {
-        IDatabaseConnection databaseConnection = getConnection();
-        InputStream inputStream = AbstractIntegrationTest.class.getResourceAsStream("/db/schema.sql");
+        final IDatabaseConnection databaseConnection = getConnection();
+        final InputStream inputStream = AbstractIntegrationTest.class.getResourceAsStream("/db/schema.sql");
 
         RunScript.execute(databaseConnection.getConnection(), new InputStreamReader(inputStream));
         super.setUp();
@@ -53,7 +53,7 @@ public abstract class AbstractIntegrationTest extends JdbcBasedDBTestCase {
 
     @Override
     protected IDataSet getDataSet() throws Exception {
-        InputStream inputStream = AbstractIntegrationTest.class.getResourceAsStream(dataSet());
+        final InputStream inputStream = AbstractIntegrationTest.class.getResourceAsStream(dataSet());
         return new FlatXmlDataSetBuilder().build(inputStream);
     }
 
