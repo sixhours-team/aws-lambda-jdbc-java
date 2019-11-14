@@ -1,17 +1,6 @@
-buildscript {
-    repositories {
-        maven { url 'http://repo.spring.io/plugins-release' }
-    }
-    dependencies {
-        classpath 'io.spring.gradle:propdeps-plugin:0.0.9.RELEASE'
-    }
+plugins {
+    id 'java'
 }
-
-apply plugin: 'java'
-apply plugin: 'propdeps'
-apply plugin: 'propdeps-maven'
-apply plugin: 'propdeps-idea'
-apply plugin: 'propdeps-eclipse'
 
 group = 'io.sixhours'
 version = '1.0.0-SNAPSHOT'
@@ -19,7 +8,7 @@ version = '1.0.0-SNAPSHOT'
 jar {
     manifest {
         attributes('Implementation-Title': 'AWS Lambda JDBC function')
-        attributes('Implementation-Version': version)
+        attributes('Implementation-Version': archiveVersion)
         attributes('Build-Time-ISO-8601': new Date().format("yyyy-MM-dd'T'HH:mm:ssZ"))
     }
 }
